@@ -26,16 +26,17 @@ def get_trades_from_binance():
             except:
                 print '---------------- error condition happend ----------------'
                 pass
+
+        content = sorted(content, key=itemgetter(0))
+        csvfile = open('binance_data.csv', 'a')
+        with csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerows(content)
+        print "Writing binance complete"
+
     except:
         print 'Error getting json data'
         pass
-
-    content = sorted(content, key=itemgetter(0))
-    csvfile = open('binance_data.csv', 'a')
-    with csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerows(content)
-    print "Writing binance complete"
 
 
 def get_trades_from_bittrex():
@@ -57,17 +58,18 @@ def get_trades_from_bittrex():
             except:
                 print '---------------- error condition happend ----------------'
                 pass
+    
+            
+        content = sorted(content, key=itemgetter(0))
+        csvfile = open('bittrex_data.csv', 'a')
+        with csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerows(content)
+        print "Writing bittrex complete"
+
     except:
         print 'Error getting json data'
         pass
-            
-    content = sorted(content, key=itemgetter(0))
-    csvfile = open('bittrex_data.csv', 'a')
-    with csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerows(content)
-    print "Writing bittrex complete"
-
 
 
 def get_trades_from_bitfinex():
@@ -87,18 +89,17 @@ def get_trades_from_bitfinex():
             except:
                 print '---------------- error condition happend ----------------'
                 pass
+
+        content = sorted(content, key=itemgetter(0))
+        csvfile = open('bitfinex_data.csv', 'a')
+        with csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerows(content)
+        print "Writing bitfinex complete"
+
     except:
         print 'Error getting json data'
         pass
-            
-
-    content = sorted(content, key=itemgetter(0))
-    csvfile = open('bitfinex_data.csv', 'a')
-    with csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerows(content)
-    print "Writing bitfinex complete"
-
 
 
 if __name__ == "__main__":
